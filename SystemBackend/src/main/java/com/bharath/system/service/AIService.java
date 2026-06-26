@@ -49,22 +49,30 @@ public class AIService {
     }
 
     public String chatWithMode(String userMessage, String mode) {
-        UserProfile p = profileService.getOrCreateProfile();
+        UserProfile p = profileService.findProfile().orElse(new UserProfile());
         String systemPrompt = buildModePrompt(mode, p);
         String model = ollamaModelService.getSelectedModel();
 
-        String response = "[SYSTEM OFFLINE]";
+        String response = "[SYSTEM OFFLINE] No AI available.\nRun: ollama serve";
+
         if (isOllamaAvailable()) {
             try {
                 response = callOllama(systemPrompt, userMessage, model);
             } catch (Exception e) {
-                log.warn("Ollama failed, trying Claude: {}", e.getMessage());
-                // Only try Claude if Ollama failed AND Claude is configured
-                if (claudeKey != null && !claudeKey.isEmpty()) {
+                log.warn("Ollama failed: {}", e.getMessage());
+                if (isClaudeConfigured()) {
                     try {
                         response = callClaude(systemPrompt, userMessage);
-                    } catch (Exception claudeEx) { log.warn("Claude also failed: {}", claudeEx.getMessage()); }
+                    } catch (Exception claudeEx) {
+                        log.warn("Claude also failed: {}", claudeEx.getMessage());
+                    }
                 }
+            }
+        } else if (isClaudeConfigured()) {
+            try {
+                response = callClaude(systemPrompt, userMessage);
+            } catch (Exception e) {
+                log.warn("Claude failed: {}", e.getMessage());
             }
         }
 
@@ -116,7 +124,7 @@ public class AIService {
             case "MENTOR" -> base + "\nMODE: MENTOR. Speak like a wise senior. Warm but honest. Under 120 words.";
             case "COACH"  -> base + "\nMODE: COACH. Pure performance. End with ONE instruction. Under 80 words.";
             case "REFLECT"-> base + "\nMODE: REFLECT. One question maximum per response. Under 40 words.";
-            case "SUPPORT"-> base + "\nMODE: SUPPORT. Hear him first. Acknowledge fully. Under 150 words.";
+            case "SUPPORT"-> base + "\nMODE: SUPPORT. Hear them first. Acknowledge fully. Then one direction. Under 150 words.";
             default       -> base;
         };
     }
@@ -139,23 +147,54 @@ public class AIService {
         } catch (Exception e) { return false; }
     } 
 
+    private boolean isClaudeConfigured() {
+        return claudeKey != null && !claudeKey.isEmpty();
+    }
+
+    public Map<String, Object> getProviderInfo() {
+        String model = ollamaModelService.getSelectedModel();
+        long latencyMs = -1;
+        String provider = "NONE";
+
+        if (isOllamaAvailable()) {
+            provider = "OLLAMA";
+            try {
+                long start = System.currentTimeMillis();
+                restTemplate.getForEntity(ollamaUrl.replace("/api/generate", "/api/tags"), String.class);
+                latencyMs = System.currentTimeMillis() - start;
+            } catch (Exception e) {
+                latencyMs = -1;
+            }
+        } else if (isClaudeConfigured()) {
+            provider = "CLAUDE";
+        }
+
+        return Map.of(
+            "provider", provider,
+            "model", model,
+            "latencyMs", latencyMs
+        );
+    }
+
     public AIProvider getCurrentProvider() {
         if (isOllamaAvailable()) return AIProvider.OLLAMA;
-        if (claudeKey != null && !claudeKey.isEmpty()) return AIProvider.CLAUDE;
+        if (isClaudeConfigured()) return AIProvider.CLAUDE;
         return AIProvider.NONE;
     }
 
     public enum AIProvider { OLLAMA, CLAUDE, NONE }
 
     public String generateQuests(UserProfile profile) {
+        String name = profile.getName() != null ? profile.getName() : "User";
+        String goal = profile.getPrimaryGoal() != null ? profile.getPrimaryGoal() : "career growth";
         String prompt = String.format(
             "Generate 3 quests for %s as JSON array only. No preamble. No markdown.\n" +
             "Each quest: title, description, xpReward(50-300), difficulty, category, type, consequence, deadlineHours(24/72/168)\n" +
             "Base on their goals: %s. Make them specific, measurable, slightly uncomfortable. JSON array only.",
-            profile.getName(), profile.getPrimaryGoal()
+            name, goal
         );
         String model = ollamaModelService.getSelectedModel();
-        return sanitizeJsonResponse(callOllama(profileService.buildSystemPrompt(), prompt, model)); // Corrected call
+        return sanitizeJsonResponse(callOllama(profileService.buildSystemPrompt(), prompt, model));
     }
 
     public String generateDayPlan(UserProfile profile, String work, String goals, String challenges, int energy, int mood, int sleepHours) {

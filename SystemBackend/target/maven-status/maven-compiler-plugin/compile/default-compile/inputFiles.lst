@@ -1,5 +1,6 @@
 C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\config\CorsConfig.java
 C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\config\SystemProperties.java
+C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\controller\AIController.java
 C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\controller\ChatController.java
 C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\controller\CheckInController.java
 C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\controller\GamificationController.java
@@ -45,6 +46,7 @@ C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com
 C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\service\AIService.java
 C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\service\CheckInService.java
 C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\service\GoogleOAuthService.java
+C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\service\GoogleSyncService.java
 C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\service\GrowthTrackerService.java
 C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\service\HealthService.java
 C:\Users\admin\Documents\SystemBuild\SystemBuild\SystemBackend\src\main\java\com\bharath\system\service\InsightService.java

@@ -95,8 +95,22 @@ public class GoogleOAuthService {
     }
 
     public Credential getCredential() {
-        // This method would refresh tokens if needed and return a valid Credential
-        // For brevity, actual token refresh logic is omitted but would go here.
-        return null; // Placeholder
+        Optional<GoogleConfig> configOpt = googleConfigRepository.findById(1L);
+        if (configOpt.isEmpty() || configOpt.get().getRefreshToken() == null) {
+            return null;
+        }
+        
+        GoogleConfig config = configOpt.get();
+        Credential credential = new Credential.Builder(com.google.api.client.auth.oauth2.BearerToken.authorizationHeaderAccessMethod())
+            .setTransport(new NetHttpTransport())
+            .setJsonFactory(GsonFactory.getDefaultInstance())
+            .setTokenServerUrl(new com.google.api.client.http.GenericUrl("https://oauth2.googleapis.com/token"))
+            .setClientAuthentication(new com.google.api.client.auth.oauth2.ClientParametersAuthentication(clientId, clientSecret))
+            .build()
+            .setAccessToken(config.getAccessToken())
+            .setRefreshToken(config.getRefreshToken());
+            
+        // Optional: you can add a listener here to update the DB when the token refreshes automatically
+        return credential;
     }
 }

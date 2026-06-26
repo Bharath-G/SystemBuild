@@ -14,9 +14,11 @@ import java.util.Optional;
 public class GoogleController {
 
     private final GoogleOAuthService googleOAuthService;
+    private final com.bharath.system.service.GoogleSyncService googleSyncService;
 
-    public GoogleController(GoogleOAuthService googleOAuthService) {
+    public GoogleController(GoogleOAuthService googleOAuthService, com.bharath.system.service.GoogleSyncService googleSyncService) {
         this.googleOAuthService = googleOAuthService;
+        this.googleSyncService = googleSyncService;
     }
 
     @GetMapping("/auth-url")
@@ -56,5 +58,13 @@ public class GoogleController {
         return ResponseEntity.ok("Disconnected from Google.");
     }
 
-    // Placeholder for sync endpoints
+    @PostMapping("/sync")
+    public ResponseEntity<Map<String, String>> syncData(@RequestParam(defaultValue = "WEEKLY") String type) {
+        try {
+            String result = googleSyncService.syncData(type);
+            return ResponseEntity.ok(Map.of("status", "success", "message", result));
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(Map.of("status", "error", "message", e.getMessage()));
+        }
+    }
 }

@@ -1,10 +1,12 @@
 com\bharath\system\controller\StreakController.class
 com\bharath\system\controller\StatusController.class
+com\bharath\system\controller\AIController.class
 com\bharath\system\model\HealthLog.class
 com\bharath\system\model\MarketInsight.class
 com\bharath\system\service\WorkService.class
 com\bharath\system\controller\JournalController.class
 com\bharath\system\controller\OllamaModelController.class
+com\bharath\system\service\GoogleSyncService.class
 com\bharath\system\service\InsightService.class
 com\bharath\system\model\Achievement.class
 com\bharath\system\repository\QuestRepository.class

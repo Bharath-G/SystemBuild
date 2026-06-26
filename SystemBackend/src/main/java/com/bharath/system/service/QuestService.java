@@ -2,6 +2,7 @@ package com.bharath.system.service;
 
 import com.bharath.system.config.SystemProperties;
 import com.bharath.system.model.Quest;
+import com.bharath.system.model.UserProfile;
 import com.bharath.system.repository.QuestRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -65,20 +66,12 @@ public class QuestService {
 
     @Transactional
     public List<Quest> generateQuests() {
-        String prompt = String.format("""
-            Generate 3 quests for %s as JSON array only. No preamble. No markdown.
-            Each quest: title, description, xpReward(50-300), difficulty, category, type, consequence, deadlineHours(24/72/168)
-            Base on his goals: AWS SAA cert, NeoBank completion, start SIP, LinkedIn visibility.
-            Make them specific, measurable, slightly uncomfortable.
-            difficulty must be one of: EASY, MEDIUM, HARD, LEGENDARY
-            category must be one of: CAREER, FINANCE, HEALTH, SKILL, KNOWLEDGE
-            type must be one of: DAILY, WEEKLY, MILESTONE
-            """, props.getName());
-        String raw = aiService.chatWithMode(prompt, "SYSTEM");
+        UserProfile profile = profileService.getOrCreateProfile();
+        String raw = aiService.generateQuests(profile);
         List<Map<String, Object>> parsed = parseQuestJson(raw);
 
         if (parsed.isEmpty()) {
-            parsed = fallbackQuests();
+            parsed = genericFallbackQuests(profile);
         }
 
         List<Quest> saved = new ArrayList<>();
@@ -145,37 +138,38 @@ public class QuestService {
         return value.toString().trim().toUpperCase();
     }
 
-    private List<Map<String, Object>> fallbackQuests() {
+    private List<Map<String, Object>> genericFallbackQuests(UserProfile profile) {
+        String goal = profile.getPrimaryGoal() != null ? profile.getPrimaryGoal() : "career growth";
         List<Map<String, Object>> quests = new ArrayList<>();
         quests.add(Map.of(
-                "title", "AWS SAA — 45 Min Study Block",
-                "description", "Complete one practice exam section and log 3 weak areas.",
-                "xpReward", 120,
+                "title", "Daily Skill Block",
+                "description", "Spend 45 minutes on a task directly tied to: " + goal,
+                "xpReward", 100,
                 "difficulty", "MEDIUM",
-                "category", "CAREER",
+                "category", "SKILL",
                 "type", "DAILY",
-                "consequence", "Cert timeline slips another week.",
+                "consequence", "Progress stalls for another day.",
                 "deadlineHours", 24
         ));
         quests.add(Map.of(
-                "title", "NeoBank README Push",
-                "description", "Write architecture section and push to GitHub with deployment notes.",
-                "xpReward", 180,
-                "difficulty", "HARD",
-                "category", "SKILL",
+                "title", "Weekly Goal Review",
+                "description", "Write 3 measurable actions for your primary goal this week.",
+                "xpReward", 150,
+                "difficulty", "MEDIUM",
+                "category", "CAREER",
                 "type", "WEEKLY",
-                "consequence", "Portfolio remains invisible to recruiters.",
+                "consequence", "Direction drifts without review.",
                 "deadlineHours", 72
         ));
         quests.add(Map.of(
-                "title", "Start ₹3,000 SIP",
-                "description", "Open or verify mutual fund SIP and schedule first debit.",
-                "xpReward", 200,
-                "difficulty", "MEDIUM",
-                "category", "FINANCE",
-                "type", "MILESTONE",
-                "consequence", "Wealth compounding delayed.",
-                "deadlineHours", 168
+                "title", "Health Non-Negotiable",
+                "description", "Complete one health action aligned with your conditions today.",
+                "xpReward", 120,
+                "difficulty", "EASY",
+                "category", "HEALTH",
+                "type", "DAILY",
+                "consequence", "Energy and focus degrade.",
+                "deadlineHours", 24
         ));
         return quests;
     }

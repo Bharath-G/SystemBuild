@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4308d882-0422-4a38-8b73-5d9b9fbf978d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ALL_PHASES_PROMPT (1).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ALL_PHASES_PROMPT.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/controller/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/controller/OllamaModelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/controller/OllamaModelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/service/AIService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/service/AIService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/service/OllamaModelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/service/OllamaModelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/service/ProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/service/ProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/service/QuestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/src/main/java/com/bharath/system/service/QuestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/SystemApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/SystemApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/config/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/config/CorsConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/config/SystemProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/config/SystemProperties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/ChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/ChatController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/CheckInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/CheckInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/GamificationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/GamificationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/GoogleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/GoogleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/HealthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/HealthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/IntelligenceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/IntelligenceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/JournalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/JournalController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/OllamaModelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/OllamaModelController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/ProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/QuestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/QuestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/StatusController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/StatusController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/StreakController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/StreakController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/WorkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/controller/WorkController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/Achievement.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/Achievement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/CompanionMemory.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/CompanionMemory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/CompanionReport.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/CompanionReport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/DailyCheckIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/DailyCheckIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/DailyInsight.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/DailyInsight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/FinancialLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/FinancialLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/GoogleConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/GoogleConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/HealthLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/HealthLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/JournalEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/JournalEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/LearningLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/LearningLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/MarketInsight.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/MarketInsight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/OllamaModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/OllamaModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/Quest.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/Quest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/Skill.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/Skill.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/Streak.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/Streak.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/UserProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/UserProfile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/WorkTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/model/WorkTask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/AchievementRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/AchievementRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/CompanionMemoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/CompanionMemoryRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/CompanionReportRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/CompanionReportRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/DailyCheckInRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/DailyCheckInRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/DailyInsightRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/DailyInsightRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/GoogleConfigRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/GoogleConfigRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/HealthLogRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/HealthLogRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/QuestRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/QuestRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/StreakRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/StreakRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/UserProfileRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/UserProfileRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/WorkTaskRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/repository/WorkTaskRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/AIService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/AIService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/AIService$AIProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/AIService$AIProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/AIService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/AIService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/AchievementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/AchievementService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/CheckInService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/CheckInService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/GoogleOAuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/GoogleOAuthService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/GrowthTrackerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/GrowthTrackerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/HealthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/HealthService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/InsightService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/InsightService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/MarketIntelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/MarketIntelService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/OllamaModelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/OllamaModelService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/ProfileService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/ProfileService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/QuestService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/QuestService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/QuestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/QuestService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/StreakService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/StreakService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/WorkService.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/service/WorkService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/util/RankUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/classes/com/bharath/system/util/RankUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemBackend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/SystemBackend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/THE_SYSTEM_BUILD.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/THE_SYSTEM_MASTER_PROMPT.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Bharath-G"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:Bharath-G/SystemBuild.git",
+    "accountId": "c6be515e-af9c-47e4-9a3a-3a4f00ec92a3"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="3FMJ6E8idCkEzlw02fR3VMO845b" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4308d882-0422-4a38-8b73-5d9b9fbf978d" name="Changes" comment="" />
+      <created>1781878832289</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1781878832289</updated>
+    </task>
+    <servers />
+  </component>
+</project>

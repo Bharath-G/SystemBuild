@@ -18,6 +18,9 @@ public class OllamaModelService {
     @Value("${ollama.base-url:http://localhost:11434}")
     private String ollamaUrl;
 
+    @Value("${ollama.model.default:mistral}")
+    private String defaultModel;
+
     private final RestTemplate restTemplate = new RestTemplate();
     private final UserProfileRepository profileRepository;
 
@@ -43,7 +46,8 @@ public class OllamaModelService {
     public String getSelectedModel() {
         return profileRepository.findById(1L)
             .map(UserProfile::getSelectedModel)
-            .orElse("mistral");
+            .filter(m -> m != null && !m.isBlank())
+            .orElse(defaultModel);
     }
 
     public void setSelectedModel(String modelName) {

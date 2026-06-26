@@ -20,7 +20,7 @@ public class ProfileController {
     @GetMapping
     public ResponseEntity<Map<String, Object>> getProfile() {
         Map<String, Object> profile = profileService.getProfile();
-        if (profile == null || profile.isEmpty()) {
+        if (profile == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(profile);

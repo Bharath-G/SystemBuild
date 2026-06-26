@@ -18,6 +18,11 @@ public class OllamaModelController {
         this.ollamaModelService = ollamaModelService;
     }
 
+    @GetMapping
+    public ResponseEntity<List<OllamaModel>> getModelsAlias() {
+        return getAvailableModels();
+    }
+
     @GetMapping("/available")
     public ResponseEntity<List<OllamaModel>> getAvailableModels() {
         return ResponseEntity.ok(ollamaModelService.getAvailableModels());
@@ -25,7 +30,8 @@ public class OllamaModelController {
 
     @GetMapping("/selected")
     public ResponseEntity<Map<String, String>> getSelectedModel() {
-        return ResponseEntity.ok(Map.of("modelName", ollamaModelService.getSelectedModel()));
+        String model = ollamaModelService.getSelectedModel();
+        return ResponseEntity.ok(Map.of("model", model, "modelName", model));
     }
 
     @PostMapping("/select")
