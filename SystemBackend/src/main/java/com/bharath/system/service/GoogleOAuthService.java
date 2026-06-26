@@ -37,11 +37,15 @@ public class GoogleOAuthService {
 
     public GoogleOAuthService(GoogleConfigRepository googleConfigRepository) {
         this.googleConfigRepository = googleConfigRepository;
+    }
+
+    @jakarta.annotation.PostConstruct
+    public void init() {
         try {
             GoogleClientSecrets clientSecrets = new GoogleClientSecrets();
             GoogleClientSecrets.Details details = new GoogleClientSecrets.Details();
-            details.setClientId(clientId);
-            details.setClientSecret(clientSecret);
+            details.setClientId(clientId != null ? clientId : "dummy-client-id");
+            details.setClientSecret(clientSecret != null ? clientSecret : "dummy-secret");
             clientSecrets.setWeb(details);
 
             flow = new GoogleAuthorizationCodeFlow.Builder(

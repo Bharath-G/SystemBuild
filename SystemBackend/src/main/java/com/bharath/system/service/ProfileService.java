@@ -28,7 +28,7 @@ public class ProfileService {
 
     public UserProfile getOrCreateProfile() {
         return findProfile()
-            .filter(UserProfile::isSetupComplete)
+            .filter(UserProfile::getSetupComplete)
             .orElseThrow(() -> new IllegalStateException("Profile not initialized. Complete setup first."));
     }
 
@@ -64,7 +64,7 @@ public class ProfileService {
     }
 
     public Map<String, Object> getProfile() {
-        Optional<UserProfile> profileOpt = findProfile().filter(UserProfile::isSetupComplete);
+        Optional<UserProfile> profileOpt = findProfile().filter(UserProfile::getSetupComplete);
         if (profileOpt.isEmpty()) {
             return null;
         }
@@ -87,7 +87,7 @@ public class ProfileService {
         result.put("communicationSkill", profile.getCommunicationSkill());
         result.put("financialIQSkill", profile.getFinancialIQSkill());
         result.put("selectedModel", profile.getSelectedModel());
-        result.put("setupComplete", profile.isSetupComplete());
+        result.put("setupComplete", profile.getSetupComplete());
         result.put("stats", buildStats(profile));
         return result;
     }
@@ -191,9 +191,9 @@ public class ProfileService {
         return profileRepository.save(existing);
     }
 
-    public boolean isSetupComplete() {
+    public boolean getSetupComplete() {
         return findProfile()
-            .map(UserProfile::isSetupComplete)
+            .map(UserProfile::getSetupComplete)
             .orElse(false);
     }
 }

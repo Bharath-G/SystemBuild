@@ -38,7 +38,7 @@ public class ProfileController {
 
     @GetMapping("/setup-status")
     public ResponseEntity<Map<String, Boolean>> getSetupStatus() {
-        boolean complete = profileService.isSetupComplete();
+        boolean complete = profileService.getSetupComplete();
         return ResponseEntity.ok(Map.of("complete", complete));
     }
 }

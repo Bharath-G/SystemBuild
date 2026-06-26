@@ -41,7 +41,7 @@ public class UserProfile {
     private String titles = "Initiate"; // Updated via Phase 0
     private String currentArc = "Arrival";  // Standard Phase 0 Arc
     private String selectedModel = "mistral"; 
-    private boolean setupComplete = false;
+    private Boolean setupComplete = false;
     private String className = "Developer"; // Default class, can be updated during setup
     
     @Column(name = "created_at")
