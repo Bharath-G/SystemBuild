@@ -28,6 +28,7 @@ public class AIService {
     private final OllamaModelService ollamaModelService;
     private final CompanionMemoryRepository memoryRepository;
     private final com.bharath.system.repository.CompanionReportRepository companionReportRepository;
+    private final MemoryService memoryService;
 
     @Value("${anthropic.api.key:}")
     private String claudeKey;
@@ -35,12 +36,13 @@ public class AIService {
     @Value("${ollama.base-url:http://localhost:11434}")
     private String ollamaUrl;
 
-    public AIService(ProfileService profileService, com.bharath.system.config.SystemProperties props, OllamaModelService ollamaModelService, CompanionMemoryRepository memoryRepository, com.bharath.system.repository.CompanionReportRepository companionReportRepository, @Value("${ollama.base-url:http://localhost:11434}") String ollamaBaseUrl) {
+    public AIService(ProfileService profileService, com.bharath.system.config.SystemProperties props, OllamaModelService ollamaModelService, CompanionMemoryRepository memoryRepository, com.bharath.system.repository.CompanionReportRepository companionReportRepository, MemoryService memoryService, @Value("${ollama.base-url:http://localhost:11434}") String ollamaBaseUrl) {
         this.profileService = profileService;
         this.props = props;
         this.ollamaModelService = ollamaModelService;
         this.memoryRepository = memoryRepository;
         this.companionReportRepository = companionReportRepository;
+        this.memoryService = memoryService;
         this.ollamaUrl = ollamaBaseUrl.endsWith("/") ? ollamaBaseUrl + "api/generate" : ollamaBaseUrl + "/api/generate";
         this.restTemplate = new RestTemplate();
     }
@@ -52,6 +54,12 @@ public class AIService {
     public String chatWithMode(String userMessage, String mode) {
         UserProfile p = profileService.findProfile().orElse(new UserProfile());
         String systemPrompt = buildModePrompt(mode, p);
+        
+        String memoryContext = memoryService.retrieveRelevant(userMessage);
+        if (memoryContext != null && !memoryContext.isEmpty()) {
+            systemPrompt += "\n\nRelevant past context: " + memoryContext;
+        }
+        
         String model = ollamaModelService.getSelectedModel();
 
         String response = "[SYSTEM OFFLINE] No AI available.\nRun: ollama serve";
@@ -96,6 +104,9 @@ public class AIService {
             memory.setEmotionalTone(json.contains("emotionalTone") ? extractJsonValue(json, "emotionalTone") : "NEUTRAL");
             memory.setKeyInsight(json.contains("keyInsight") ? extractJsonValue(json, "keyInsight") : "");
             memoryRepository.save(memory);
+            
+            // Store to Semantic Memory (ChromaDB)
+            memoryService.storeMemory("User said: " + userMsg + "\nSystem said: " + response + "\nTone: " + memory.getEmotionalTone(), mode);
         } catch (Exception e) { log.error("Memory extraction failed"); }
     }
 
