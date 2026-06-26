@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CompanionReportRepository extends JpaRepository<CompanionReport, Long> {
+    java.util.Optional<CompanionReport> findFirstByOrderByGeneratedDateDesc();
 }

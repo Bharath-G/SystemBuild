@@ -27,6 +27,7 @@ public class AIService {
     private final com.bharath.system.config.SystemProperties props;
     private final OllamaModelService ollamaModelService;
     private final CompanionMemoryRepository memoryRepository;
+    private final com.bharath.system.repository.CompanionReportRepository companionReportRepository;
 
     @Value("${anthropic.api.key:}")
     private String claudeKey;
@@ -34,12 +35,12 @@ public class AIService {
     @Value("${ollama.base-url:http://localhost:11434}")
     private String ollamaUrl;
 
-    public AIService(ProfileService profileService, com.bharath.system.config.SystemProperties props, OllamaModelService ollamaModelService, CompanionMemoryRepository memoryRepository, @Value("${ollama.base-url:http://localhost:11434}") String ollamaBaseUrl) {
+    public AIService(ProfileService profileService, com.bharath.system.config.SystemProperties props, OllamaModelService ollamaModelService, CompanionMemoryRepository memoryRepository, com.bharath.system.repository.CompanionReportRepository companionReportRepository, @Value("${ollama.base-url:http://localhost:11434}") String ollamaBaseUrl) {
         this.profileService = profileService;
         this.props = props;
         this.ollamaModelService = ollamaModelService;
         this.memoryRepository = memoryRepository;
-        // Ensure ollamaUrl ends with /api/generate for the actual call
+        this.companionReportRepository = companionReportRepository;
         this.ollamaUrl = ollamaBaseUrl.endsWith("/") ? ollamaBaseUrl + "api/generate" : ollamaBaseUrl + "/api/generate";
         this.restTemplate = new RestTemplate();
     }
@@ -88,34 +89,44 @@ public class AIService {
         );
         try {
             String json = callOllama(profileService.buildSystemPrompt(), extractPrompt, ollamaModelService.getSelectedModel());
-            // Simple manual parse for now to avoid dependency bloat
             CompanionMemory memory = new CompanionMemory();
             memory.setMode(mode);
             memory.setUserMessage(userMsg);
             memory.setSystemResponse(response);
             memory.setEmotionalTone(json.contains("emotionalTone") ? extractJsonValue(json, "emotionalTone") : "NEUTRAL");
+            memory.setKeyInsight(json.contains("keyInsight") ? extractJsonValue(json, "keyInsight") : "");
             memoryRepository.save(memory);
         } catch (Exception e) { log.error("Memory extraction failed"); }
     }
 
     @Scheduled(cron = "0 0 20 * * SUN")
     public void generateWeeklyReport() {
-        List<CompanionMemory> weekData = memoryRepository.findAll(); // Should filter by date
-        String insightSummary = weekData.stream().map(m -> m.getKeyInsight()).reduce("", (a, b) -> a + ". " + b);
+        java.time.LocalDate today = java.time.LocalDate.now();
+        java.time.LocalDate weekStart = today.minusDays(6);
+        List<CompanionMemory> weekData = memoryRepository.findByDateBetweenOrderByTimestampDesc(weekStart, today);
+        String insightSummary = weekData.stream().map(CompanionMemory::getKeyInsight).reduce("", (a, b) -> a + ". " + b);
+        String tones = weekData.stream().map(CompanionMemory::getEmotionalTone).collect(Collectors.joining(", "));
         
         UserProfile p = profileService.getOrCreateProfile();
         String reportPrompt = String.format(
             "Generate a weekly companion report for %s based on these insights: %s\n" +
+            "Emotional tones this week: %s\n" +
             "1. PATTERN — what emotional pattern emerged this week\n" +
             "2. GROWTH — one thing that showed genuine growth\n" +
             "3. CONCERN — one thing that needs attention\n" +
             "4. NEXT WEEK — one focus for the coming week\n" +
             "Be specific. Use their actual words where possible. This is private. Be fully honest. Under 200 words.",
-            p.getName(), insightSummary
+            p.getName(), insightSummary, tones
         );
 
-        String report = chatWithMode(reportPrompt, "SYSTEM"); // Use SYSTEM mode for report generation
-        // Save to CompanionReport entity logic here
+        String report = chatWithMode(reportPrompt, "SYSTEM");
+        
+        // Save to CompanionReport entity
+        com.bharath.system.model.CompanionReport companionReport = new com.bharath.system.model.CompanionReport();
+        companionReport.setContent(report);
+        companionReport.setWeekRange(weekStart + " to " + today);
+        companionReportRepository.save(companionReport);
+        log.info("Weekly companion report generated and saved for week: {} to {}", weekStart, today);
     }
 
     private String buildModePrompt(String mode, UserProfile p) {

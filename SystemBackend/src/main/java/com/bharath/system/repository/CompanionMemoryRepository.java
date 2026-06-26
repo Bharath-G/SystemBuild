@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface CompanionMemoryRepository extends JpaRepository<CompanionMemory, Long> {
     List<CompanionMemory> findByDate(LocalDate date);
+    List<CompanionMemory> findByDateBetweenOrderByTimestampDesc(LocalDate start, LocalDate end);
+    List<CompanionMemory> findTop20ByOrderByTimestampDesc();
 }
